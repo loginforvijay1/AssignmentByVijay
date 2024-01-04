@@ -37,5 +37,4 @@ I selected the Playing movies API and integrated it with collection view to crea
 - UI Test
 
 ## Swift Package Manager
-- Reachability
 - PromiseKit 8.1.1
