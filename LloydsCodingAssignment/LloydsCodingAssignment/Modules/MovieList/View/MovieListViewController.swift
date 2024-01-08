@@ -9,9 +9,8 @@ import UIKit
 
 final class MovieListViewController: UIViewController {
     
-    @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
-    
+    var collectionView: UICollectionView?
+    var activityIndicator: UIActivityIndicatorView?
     var viewModel: MovieListViewModel? {
         didSet {
             if isViewLoaded {
@@ -31,17 +30,35 @@ final class MovieListViewController: UIViewController {
         return flowLayout
     }
     
+    private func setupCollectionView() {
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), collectionViewLayout: flowLayout())
+        collectionView?.collectionViewLayout = flowLayout()
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        collectionView?.register(MovieCollectionViewCell.nib, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
+        view.addSubview(collectionView ?? UICollectionView())
+        collectionView?.translatesAutoresizingMaskIntoConstraints = false
+        collectionView?.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        collectionView?.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        collectionView?.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        collectionView?.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator?.center = self.view.center
+        activityIndicator?.hidesWhenStopped = true
+        activityIndicator?.color = UIColor.blue
+        view.addSubview(activityIndicator ?? UIActivityIndicatorView())
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+        setupActivityIndicator()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadMovies))
         viewModel = MovieListViewModel(service: MovieService())
         title = viewModel?.title
-        collectionView.collectionViewLayout = flowLayout()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(MovieCollectionViewCell.nib, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
-        activityIndicator.style = .large
-        activityIndicator.hidesWhenStopped = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadMovies))
     }
     
     @objc private func loadMovies() {
@@ -52,7 +69,7 @@ final class MovieListViewController: UIViewController {
             .done { [weak self] items in
                 DispatchQueue.main.async {
                     self?.movieItems = items
-                    self?.collectionView.reloadData()
+                    self?.collectionView?.reloadData()
                 }
             }
             .catch { [weak self] error in
@@ -65,18 +82,18 @@ final class MovieListViewController: UIViewController {
     }
     
     private func enableControls() {
-        activityIndicator.stopAnimating()
+        activityIndicator?.stopAnimating()
     }
     
     private func disableControls() {
-        activityIndicator.startAnimating()
+        activityIndicator?.startAnimating()
     }
 }
 
 extension MovieListViewController {
     func showMovieDetails(movie: Movie) {
         let viewModel = MovieDetailsViewModel(movie: movie, moviesService: MovieService())
-        let viewController = MovieDetailsViewController.instantiate()
+        let viewController = MovieDetailsViewController()
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -103,7 +120,7 @@ extension MovieListViewController: UICollectionViewDelegate {
         
         _ = viewModel?.fetchImage(for: item)
             .done { [weak self] image in
-                if self?.collectionView.indexPath(for: cell) == indexPath {
+                if self?.collectionView?.indexPath(for: cell) == indexPath {
                     movieCell.updateImage(image: image)
                 }
             }
@@ -128,8 +145,4 @@ extension MovieListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movieItems.count
     }
-}
-
-extension MovieListViewController: StoryboardBased {
-    static var storyboard: Storyboard = .main
 }

@@ -17,5 +17,4 @@ public extension Decodable {
             else { return nil }
         self = anInstance
     }
-
 }

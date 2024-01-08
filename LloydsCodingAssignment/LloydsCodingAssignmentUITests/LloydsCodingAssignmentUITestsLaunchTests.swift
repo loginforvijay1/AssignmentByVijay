@@ -1,3 +1,4 @@
+
 //
 //  LloydsCodingAssignmentUITestsLaunchTests.swift
 //  LloydsCodingAssignmentUITests
@@ -15,6 +16,7 @@ final class LloydsCodingAssignmentUITestsLaunchTests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        
     }
 
     func testLaunch() throws {
@@ -28,5 +30,6 @@ final class LloydsCodingAssignmentUITestsLaunchTests: XCTestCase {
         attachment.name = "Launch Screen"
         attachment.lifetime = .keepAlways
         add(attachment)
+                        
     }
 }

@@ -11,36 +11,79 @@ import PromiseKit
 
 final class MovieDetailsViewController: UIViewController {
     
-    @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subTitleLabel: UILabel!
-    @IBOutlet private weak var subTextLabel: UILabel!
- 
+    var posterImageView: UIImageView?
+    var titleLabel: UILabel?
+    var subTitleLabel: UILabel?
+    var subTextLabel: UILabel?
+    
     var viewModel : MovieDetailsViewModelType?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Movie Details"
+        loadViews()
         displayViewModel()
     }
-
+    
     private func displayViewModel() {
         guard let viewModel = viewModel else { return }
-        titleLabel.text = viewModel.title
-        subTitleLabel.text = viewModel.subTitle
-        subTextLabel.text = viewModel.subText
-
+        titleLabel?.text = viewModel.title
+        subTitleLabel?.text = viewModel.subTitle
+        subTextLabel?.text = viewModel.subText
+        
         _ = viewModel.fetchMovieImage()
             .done { [weak self] image in
-                self?.posterImageView.image = image
-                self?.posterImageView.showRoundCornersWith(radius: 20)
+                self?.posterImageView?.image = image
+                self?.posterImageView?.showRoundCornersWith(radius: 20)
             }
-
+        
         view.setNeedsLayout()
     }
-}
-
-extension MovieDetailsViewController: StoryboardBased {
-    static var storyboard: Storyboard = .main
+    
+    func loadViews() {
+        
+        view = UIView()
+        view.backgroundColor = .white
+        
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing   = 16.0
+        
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor , constant: 150)
+        ])
+        posterImageView = UIImageView()
+        posterImageView?.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        posterImageView?.widthAnchor.constraint(equalToConstant:  300).isActive = true
+        posterImageView?.contentMode = .scaleAspectFit
+        stackView.addArrangedSubview(posterImageView ?? UIImageView())
+        
+        titleLabel = UILabel()
+        titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
+        titleLabel?.textAlignment = .center
+        titleLabel?.numberOfLines = 0
+        stackView.addArrangedSubview(titleLabel ?? UILabel())
+        
+        subTitleLabel = UILabel()
+        subTitleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        subTitleLabel?.font = UIFont.systemFont(ofSize: 18)
+        subTitleLabel?.textAlignment = .center
+        subTitleLabel?.numberOfLines = 0
+        stackView.addArrangedSubview(subTitleLabel ?? UILabel())
+        
+        subTextLabel = UILabel()
+        subTextLabel?.translatesAutoresizingMaskIntoConstraints = false
+        subTextLabel?.font = UIFont.systemFont(ofSize: 17)
+        subTextLabel?.textAlignment = .justified
+        subTextLabel?.numberOfLines = 0
+        stackView.addArrangedSubview(subTextLabel ?? UILabel())
+    }
 }

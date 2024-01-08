@@ -14,4 +14,3 @@ func brokenPromise<T>(method: String = #function) -> Promise<T> {
     seal.reject(err)
   }
 }
-
