@@ -1,9 +1,4 @@
-//
-//  NetworkServices.swift
-//  LloydsCodingAssignment
-//
-//  Created by Vemireddy Vijayasimha Reddy on 02/01/24.
-//
+
 
 import Foundation
 import PromiseKit

@@ -1,9 +1,4 @@
-//
-//  MovieDetailsViewController.swift
-//  LloydsCodingAssignment
-//
-//  Created by Vemireddy Vijayasimha Reddy on 02/01/24.
-//
+
 
 import Foundation
 import UIKit
@@ -61,7 +56,6 @@ final class MovieDetailsViewController: UIViewController {
         ])
         posterImageView = UIImageView()
         posterImageView?.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        posterImageView?.widthAnchor.constraint(equalToConstant:  300).isActive = true
         posterImageView?.contentMode = .scaleAspectFit
         stackView.addArrangedSubview(posterImageView ?? UIImageView())
         

@@ -1,10 +1,4 @@
 
-//
-//  LloydsCodingAssignmentUITestsLaunchTests.swift
-//  LloydsCodingAssignmentUITests
-//
-//  Created by Vemireddy Vijayasimha Reddy on 01/01/24.
-//
 
 import XCTest
 

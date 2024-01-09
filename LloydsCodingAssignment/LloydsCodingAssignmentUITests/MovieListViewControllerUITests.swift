@@ -1,9 +1,4 @@
-//
-//  MovieListViewControllerUITests.swift
-//  LloydsCodingAssignmentUITests
-//
-//  Created by Vemireddy Vijayasimha Reddy on 08/01/24.
-//
+
 
 import XCTest
 
@@ -29,7 +24,6 @@ final class MovieListViewControllerUITests: XCTestCase {
         
         var cellsQuery = app.collectionViews.cells
         let aquamanAndTheLostKingdomElement = cellsQuery.otherElements.containing(.staticText, identifier:"Aquaman and the Lost Kingdom").element
-        aquamanAndTheLostKingdomElement.swipeUp()
         
         let nowPlayingNavigationBar = app.navigationBars["Now Playing"]
         XCTAssertTrue(nowPlayingNavigationBar.exists)
@@ -38,15 +32,12 @@ final class MovieListViewControllerUITests: XCTestCase {
         
         nowPlayingNavigationBar.buttons["Refresh"].tap()
         let element = app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
-        cellsQuery.otherElements.containing(.staticText, identifier:"A Creature Was Stirring").element.swipeUp()
         
         let verticalScrollBar3PagesCollectionView = app/*@START_MENU_TOKEN@*/.collectionViews.containing(.other, identifier:"Vertical scroll bar, 3 pages").element/*[[".collectionViews.containing(.other, identifier:\"Horizontal scroll bar, 1 page\").element",".collectionViews.containing(.other, identifier:\"Vertical scroll bar, 3 pages\").element"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         verticalScrollBar3PagesCollectionView.swipeUp()
-        cellsQuery.otherElements.containing(.staticText, identifier:"Society of the Snow").element.swipeDown()
         verticalScrollBar3PagesCollectionView.swipeDown()
         verticalScrollBar3PagesCollectionView.swipeUp()
         cellsQuery = XCUIApplication().collectionViews.cells
-        cellsQuery.otherElements.containing(.staticText, identifier:"Society of the Snow").element.tap()
                 
         let refreshButton = app.navigationBars["Now Playing"].buttons["Refresh"]
         XCTAssertNotNil(refreshButton.exists)

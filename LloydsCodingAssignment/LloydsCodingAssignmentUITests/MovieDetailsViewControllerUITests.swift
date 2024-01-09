@@ -1,9 +1,4 @@
-//
-//  MovieDetailsViewControllerUITests.swift
-//  LloydsCodingAssignmentUITests
-//
-//  Created by Vemireddy Vijayasimha Reddy on 08/01/24.
-//
+
 
 import XCTest
 

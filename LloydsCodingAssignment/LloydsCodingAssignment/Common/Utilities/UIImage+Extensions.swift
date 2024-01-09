@@ -1,9 +1,5 @@
-//
-//  UIImage+Extensions.swift
-//  LloydsCodingAssignment
-//
-//  Created by Vemireddy Vijayasimha Reddy on 02/01/24.
-//
+
+
 import UIKit
 
 extension UIImageView {

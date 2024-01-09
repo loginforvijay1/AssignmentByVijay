@@ -1,11 +1,7 @@
-//
-//  MovieListViewController.swift
-//  LloydsCodingAssignment
-//
-//  Created by Vemireddy Vijayasimha Reddy on 02/01/24.
-//
+
 
 import UIKit
+import SwiftUI
 
 final class MovieListViewController: UIViewController {
     
@@ -35,7 +31,7 @@ final class MovieListViewController: UIViewController {
         collectionView?.collectionViewLayout = flowLayout()
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.register(MovieCollectionViewCell.nib, forCellWithReuseIdentifier: MovieCollectionViewCell.reuseIdentifier)
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         view.addSubview(collectionView ?? UICollectionView())
         collectionView?.translatesAutoresizingMaskIntoConstraints = false
         collectionView?.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
@@ -111,17 +107,13 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let movieCell = cell as? MovieCollectionViewCell else {
-            return
-        }
-        
         let item = movieItems[indexPath.row]
-        movieCell.configureContent(item)
-        
         _ = viewModel?.fetchImage(for: item)
             .done { [weak self] image in
                 if self?.collectionView?.indexPath(for: cell) == indexPath {
-                    movieCell.updateImage(image: image)
+                    cell.contentConfiguration = UIHostingConfiguration {
+                        MovieListCell(movieImage: image, title: item.title, subTitile: item.subTitle)
+                    }
                 }
             }
     }
@@ -135,7 +127,12 @@ extension MovieListViewController: UICollectionViewDelegate {
 extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseIdentifier, for: indexPath)
+        let movieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        movieCell.layer.cornerRadius = 10
+        movieCell.layer.borderWidth = 1.0
+        movieCell.layer.borderColor = UIColor.clear.cgColor
+        movieCell.layer.masksToBounds = true
+        return movieCell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -144,5 +141,47 @@ extension MovieListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movieItems.count
+    }
+}
+
+// Swift UI Cell
+struct MovieListCell: View {
+    var movieImage: UIImage
+    var title: String
+    var subTitile: String
+    var body: some View {
+        ZStack() {
+            Image(uiImage: movieImage)
+                .scaledToFit()
+            VStack {
+                Spacer()
+                HStack{
+                    Text(subTitile)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .background(.black).opacity(0.8)
+                        .foregroundStyle(.white)
+                        .font(.system(size: 14, weight: .bold))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .border(Color.gray)
+                        .multilineTextAlignment(.center)
+                        .padding(EdgeInsets(top: 0, leading: 55, bottom: 0, trailing: 3))
+                    Spacer()
+                }
+                Spacer()
+                Spacer()
+                Text(title)
+                    .background(.black).opacity(0.6)
+                    .foregroundStyle(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .border(Color.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                Spacer()
+                
+            }
+        }
+        
     }
 }
