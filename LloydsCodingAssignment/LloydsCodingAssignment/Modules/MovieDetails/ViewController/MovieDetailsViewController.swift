@@ -16,7 +16,7 @@ final class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Movie Details"
+        title = Constants.movieDetailsTitile
         loadViews()
         displayViewModel()
     }

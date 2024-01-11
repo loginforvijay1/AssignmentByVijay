@@ -26,7 +26,7 @@ struct MovieDetailsViewModel: MovieDetailsViewModelType {
         self.movie = movie
         subText = movie.overview
         title = movie.title
-        subTitle = DateFormatter.string(from: movie.releaseDate, format: "MMMM YYYY")
+        subTitle = DateFormatter.string(from: movie.releaseDate, format: Constants.dateFormat)
     }
 
     func fetchMovieImage() -> Promise<UIImage> {

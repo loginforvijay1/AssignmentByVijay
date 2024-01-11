@@ -28,7 +28,7 @@ struct MovieViewItem {
         self.movie = movie
         title = movie.title
         imageUrl = movie.posterPath
-        subTitle = DateFormatter.string(from: movie.releaseDate, format: "MMMM YYYY")
+        subTitle = DateFormatter.string(from: movie.releaseDate, format: Constants.dateFormat)
     }
 }
 
@@ -47,7 +47,7 @@ struct MovieListViewModel: MovieListViewModelType {
     }
 
     var title: String? {
-        return "Now Playing"
+        return Constants.movieListTitile
     }
 
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage> {
