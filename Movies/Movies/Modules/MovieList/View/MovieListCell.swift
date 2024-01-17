@@ -1,9 +1,3 @@
-//
-//  MovieListCell.swift
-//  LloydsCodingAssignment
-//
-//  Created by Vemireddy Vijayasimha Reddy on 11/01/24.
-//
 
 import Foundation
 import SwiftUI

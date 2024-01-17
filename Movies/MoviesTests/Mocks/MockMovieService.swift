@@ -4,7 +4,7 @@ import Foundation
 import XCTest
 import PromiseKit
 
-@testable import LloydsCodingAssignment
+@testable import Movies
 
 class MockMovieService: MovieServiceType {
 

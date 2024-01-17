@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7DA89AC02B42F68B00CF909A"
-               BuildableName = "LloydsCodingAssignment.app"
-               BlueprintName = "LloydsCodingAssignment"
-               ReferencedContainer = "container:LloydsCodingAssignment.xcodeproj">
+               BuildableName = "Movies.app"
+               BlueprintName = "Movies"
+               ReferencedContainer = "container:Movies.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -26,8 +26,13 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      shouldAutocreateTestPlan = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <TestPlans>
+         <TestPlanReference
+            reference = "container:Movies.xctestplan"
+            default = "YES">
+         </TestPlanReference>
+      </TestPlans>
       <Testables>
          <TestableReference
             skipped = "NO"
@@ -35,9 +40,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7DA89AD62B42F68D00CF909A"
-               BuildableName = "LloydsCodingAssignmentTests.xctest"
-               BlueprintName = "LloydsCodingAssignmentTests"
-               ReferencedContainer = "container:LloydsCodingAssignment.xcodeproj">
+               BuildableName = "MoviesTests.xctest"
+               BlueprintName = "MoviesTests"
+               ReferencedContainer = "container:Movies.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -46,9 +51,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7DA89AE02B42F68D00CF909A"
-               BuildableName = "LloydsCodingAssignmentUITests.xctest"
-               BlueprintName = "LloydsCodingAssignmentUITests"
-               ReferencedContainer = "container:LloydsCodingAssignment.xcodeproj">
+               BuildableName = "MoviesUITests.xctest"
+               BlueprintName = "MoviesUITests"
+               ReferencedContainer = "container:Movies.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DA89AC02B42F68B00CF909A"
-            BuildableName = "LloydsCodingAssignment.app"
-            BlueprintName = "LloydsCodingAssignment"
-            ReferencedContainer = "container:LloydsCodingAssignment.xcodeproj">
+            BuildableName = "Movies.app"
+            BlueprintName = "Movies"
+            ReferencedContainer = "container:Movies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -85,9 +90,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7DA89AC02B42F68B00CF909A"
-            BuildableName = "LloydsCodingAssignment.app"
-            BlueprintName = "LloydsCodingAssignment"
-            ReferencedContainer = "container:LloydsCodingAssignment.xcodeproj">
+            BuildableName = "Movies.app"
+            BlueprintName = "Movies"
+            ReferencedContainer = "container:Movies.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -2,7 +2,7 @@
 
 import XCTest
 
-final class LloydsCodingAssignmentUITestsLaunchTests: XCTestCase {
+final class MoviesUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
