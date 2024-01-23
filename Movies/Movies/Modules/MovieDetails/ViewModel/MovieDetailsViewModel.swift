@@ -4,29 +4,16 @@ import Foundation
 import UIKit
 import PromiseKit
 
-protocol MovieDetailsViewModelType {
-    var title: String { get }
-    var subTitle: String { get }
-    var subText: String { get }
-    var posterImage: UIImage{ get }
-}
-
-struct MovieDetailsViewModel: MovieDetailsViewModelType {
+struct MovieDetailsViewModel {
     
-    let title: String
-    let subTitle: String
-    let subText: String
-    let posterImage: UIImage
-    
-    private let moviesService: MovieServiceType
-    private let movie: Movie
-
-    init( movie: Movie, posterImage: UIImage, moviesService: MovieServiceType) {
-        self.moviesService = moviesService
-        self.movie = movie
+    internal let title: String
+    internal let subTitle: String
+    internal let subText: String
+    internal let posterImage: UIImage
+    init( movie: Movie, posterImage: UIImage) {
         subText = movie.overview
         title = movie.title
-        subTitle = DateFormatter.string(from: movie.releaseDate, format: Constants.dateFormat)
         self.posterImage = posterImage
+        subTitle = DateFormatter.string(from: movie.releaseDate, format: Constants.dateFormat)
     }
 }

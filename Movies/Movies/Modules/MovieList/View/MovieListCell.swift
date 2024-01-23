@@ -4,9 +4,15 @@ import SwiftUI
 
 // Swift UI Cell
 struct MovieListCell: View {
-    var movieImage: UIImage
-    var title: String
-    var subTitile: String
+    private var movieImage: UIImage
+    private var title: String
+    private var subTitile: String
+    
+    init(movieImage: UIImage, title: String, subTitile: String) {
+        self.movieImage = movieImage
+        self.title = title
+        self.subTitile = subTitile
+    }
     var body: some View {
         ZStack() {
             Image(uiImage: movieImage)

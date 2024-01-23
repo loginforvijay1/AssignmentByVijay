@@ -5,9 +5,9 @@ import SwiftUI
 
 final class MovieListViewController: UIViewController {
     
-    var collectionView: UICollectionView?
-    var activityIndicator: UIActivityIndicatorView?
-    var viewModel: MovieListViewModel? {
+    private var collectionView: UICollectionView?
+    private var activityIndicator: UIActivityIndicatorView?
+    private var viewModel: MovieListViewModel? {
         didSet {
             if isViewLoaded {
                 loadMovies()
@@ -89,7 +89,7 @@ final class MovieListViewController: UIViewController {
 extension MovieListViewController {
     func showMovieDetails(movie: Movie) {
         let poseterImage = viewModel?.cache.object(forKey: movie.posterPath as NSString)
-        let viewModel = MovieDetailsViewModel(movie: movie, posterImage: poseterImage ?? UIImage(), moviesService: MovieService())
+        let viewModel = MovieDetailsViewModel(movie: movie, posterImage: poseterImage ?? UIImage())
         let viewController = MovieDetailsViewController()
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)

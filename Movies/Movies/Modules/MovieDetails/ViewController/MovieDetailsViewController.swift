@@ -6,12 +6,12 @@ import PromiseKit
 
 final class MovieDetailsViewController: UIViewController {
     
-    var posterImageView: UIImageView?
-    var titleLabel: UILabel?
-    var subTitleLabel: UILabel?
-    var subTextLabel: UILabel?
+    private var posterImageView: UIImageView?
+    private var titleLabel: UILabel?
+    private var subTitleLabel: UILabel?
+    private var subTextLabel: UILabel?
     
-    var viewModel : MovieDetailsViewModelType?
+    var viewModel : MovieDetailsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
