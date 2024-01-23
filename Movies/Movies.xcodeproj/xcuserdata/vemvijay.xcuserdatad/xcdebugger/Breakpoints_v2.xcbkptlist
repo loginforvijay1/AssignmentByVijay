@@ -3,4 +3,70 @@
    uuid = "26928ACD-1A5A-4BD3-8B6F-A5BF6CF4768C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1AE1228-4589-48FE-BE11-62E8669D7FA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movies/Modules/MovieList/ViewModel/MovieListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "fetchImage(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4079A517-BA9A-49B6-9B8A-5645DE1ECA1D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movies/Modules/MovieList/ViewModel/MovieListViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "fetchImage(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4079A517-BA9A-49B6-9B8A-5645DE1ECA1D - 805de5bb0debff32"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.MovieListViewModel.fetchImage(for: Movies.MovieViewItem) -&gt; PromiseKit.Promise&lt;__C.UIImage&gt;"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Modules/MovieList/ViewModel/MovieListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "967">
+               </Location>
+               <Location
+                  uuid = "4079A517-BA9A-49B6-9B8A-5645DE1ECA1D - dccb2424828b9668"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Data) -&gt; Swift.Optional&lt;__C.UIImage&gt; in Movies.MovieListViewModel.fetchImage(for: Movies.MovieViewItem) -&gt; PromiseKit.Promise&lt;__C.UIImage&gt;"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Modules/MovieList/ViewModel/MovieListViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

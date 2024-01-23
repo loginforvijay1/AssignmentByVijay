@@ -53,9 +53,7 @@ struct MovieListViewModel: MovieListViewModelType {
     
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage> {
         if let image = cache.object(forKey: item.imageUrl as NSString) {
-            return Promise<UIImage> { seal in
-                seal.fulfill(image)
-            }
+            return Promise.value(image)
         } else {
             return service.fetchPosterImage(path: item.imageUrl)
                 .compactMap {
