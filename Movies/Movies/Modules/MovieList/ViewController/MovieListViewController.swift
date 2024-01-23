@@ -88,7 +88,8 @@ final class MovieListViewController: UIViewController {
 
 extension MovieListViewController {
     func showMovieDetails(movie: Movie) {
-        let viewModel = MovieDetailsViewModel(movie: movie, moviesService: MovieService())
+        let poseterImage = viewModel?.cache.object(forKey: movie.posterPath as NSString)
+        let viewModel = MovieDetailsViewModel(movie: movie, posterImage: poseterImage ?? UIImage(), moviesService: MovieService())
         let viewController = MovieDetailsViewController()
         viewController.viewModel = viewModel
         navigationController?.pushViewController(viewController, animated: true)

@@ -18,22 +18,18 @@ final class MovieDetailsViewController: UIViewController {
         
         title = Constants.movieDetailsTitile
         loadViews()
-        displayViewModel()
+        updateContent()
     }
     
-    private func displayViewModel() {
+    private func updateContent() {
         guard let viewModel = viewModel else { return }
         titleLabel?.text = viewModel.title
         subTitleLabel?.text = viewModel.subTitle
         subTextLabel?.text = viewModel.subText
-        
-        _ = viewModel.fetchMovieImage()
-            .done { [weak self] image in
-                self?.posterImageView?.image = image
-                self?.posterImageView?.showRoundCornersWith(radius: 20)
-            }
-        
-        view.setNeedsLayout()
+        DispatchQueue.main.async { [weak self] in
+            self?.posterImageView?.image = viewModel.posterImage
+            self?.posterImageView?.showRoundCornersWith(radius: 20)
+        }
     }
     
     func loadViews() {

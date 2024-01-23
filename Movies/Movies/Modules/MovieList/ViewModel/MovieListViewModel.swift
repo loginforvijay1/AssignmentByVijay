@@ -41,20 +41,31 @@ protocol MovieListViewModelType {
 struct MovieListViewModel: MovieListViewModelType {
     
     private let service: MovieServiceType
-
+    let cache = NSCache<NSString, UIImage>()
+    
     init(service: MovieServiceType) {
         self.service = service
     }
-
+    
     var title: String? {
         return Constants.movieListTitile
     }
-
+    
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage> {
-        return service.fetchPosterImage(path: item.imageUrl)
-            .compactMap {  UIImage(data: $0) }
+        if let image = cache.object(forKey: item.imageUrl as NSString) {
+            return Promise<UIImage> { seal in
+                seal.fulfill(image)
+            }
+        } else {
+            return service.fetchPosterImage(path: item.imageUrl)
+                .compactMap {
+                    let posterImage =  UIImage(data: $0)
+                    cache.setObject(posterImage ?? UIImage(), forKey: item.imageUrl as NSString)
+                    return posterImage
+                }
+        }
     }
-
+    
     func loadMovies() -> Promise<[MovieViewItem]> {
         return Promise { seal in
             service.fetchNowPlayingMovies()
