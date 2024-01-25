@@ -11,7 +11,7 @@ final class MovieDetailsViewController: UIViewController {
     private var subTitleLabel: UILabel?
     private var subTextLabel: UILabel?
     
-    var viewModel : MovieDetailsViewModel?
+    var viewModel: MovieDetailsViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()

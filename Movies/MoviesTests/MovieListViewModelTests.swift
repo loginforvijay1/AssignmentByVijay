@@ -4,12 +4,12 @@ import XCTest
 
 final class MovieListViewModelTests: XCTestCase {
     
-    private var service: MockMovieService!
-    private var listViewModel: MovieListViewModel!
+    private var service: MockMovieService?
+    private var listViewModel: MovieListViewModel?
     
     override func setUpWithError() throws {
         service = MockMovieService()
-        listViewModel = MovieListViewModel(service: service)
+        listViewModel = MovieListViewModel(service: service ?? MockMovieService())
     }
     
     override func tearDownWithError() throws {
@@ -26,12 +26,12 @@ final class MovieListViewModelTests: XCTestCase {
             return
         }
         
-        service.fetchNowPlayingMoviesGivenValue = movieList
+        service?.fetchNowPlayingMoviesGivenValue = movieList
         
         var movieItems: [MovieViewItem]?
         
         // When
-        _ = listViewModel.loadMovies()
+        _ = listViewModel?.loadMovies()
             .done { items in
                 movieItems = items
                 expectation.fulfill()
@@ -54,12 +54,12 @@ final class MovieListViewModelTests: XCTestCase {
         // Given
         let expectation = self.expectation(description: "Fetch Movies")
         
-        service.fetchNowPlayingMoviesGivenValue = nil
+        service?.fetchNowPlayingMoviesGivenValue = nil
         
         var expectedDownloadError: DownloadError?
         
         // When
-        listViewModel.loadMovies()
+        listViewModel?.loadMovies()
             .catch { error in
                 guard let downloadError = error as? DownloadError else { return }
                 expectedDownloadError = downloadError
@@ -76,13 +76,13 @@ final class MovieListViewModelTests: XCTestCase {
         let expectation = self.expectation(description: "Movie Image")
         
         let imageData = TestUtils().loadImageData(filename: "clapboard")
-        service.fetchPosterImageReturnValue = imageData
+        service?.fetchPosterImageReturnValue = imageData
         let movie = Movie(id: 123, title: "title", posterPath: "posterPath", overview: "overview", releaseDate: Date())
         let movieItem = MovieViewItem(movie)
         
         var expetedImage: UIImage?
         //When
-        _ = listViewModel.fetchImage(for: movieItem)
+        _ = listViewModel?.fetchImage(for: movieItem)
             .done { image in
                 expetedImage = image
                 expectation.fulfill()
