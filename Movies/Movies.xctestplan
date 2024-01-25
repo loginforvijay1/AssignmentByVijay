@@ -9,25 +9,6 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : {
-      "targets" : [
-        {
-          "containerPath" : "container:Movies.xcodeproj",
-          "identifier" : "7DA89AC02B42F68B00CF909A",
-          "name" : "Movies"
-        },
-        {
-          "containerPath" : "container:Movies.xcodeproj",
-          "identifier" : "7DA89AD62B42F68D00CF909A",
-          "name" : "MoviesTests"
-        },
-        {
-          "containerPath" : "container:Movies.xcodeproj",
-          "identifier" : "7DA89AE02B42F68D00CF909A",
-          "name" : "MoviesUITests"
-        }
-      ]
-    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:Movies.xcodeproj",
       "identifier" : "7DA89AC02B42F68B00CF909A",
