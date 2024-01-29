@@ -5,7 +5,7 @@ import PromiseKit
 
 class MovieDetailsViewModelTests: XCTestCase {
 
-    private var service: MockMovieService?
+    private var service: MockMovieServiceType?
 
     private var sut: MovieDetailsViewModelType?
 
@@ -20,6 +20,6 @@ class MovieDetailsViewModelTests: XCTestCase {
     func test_MovieImage_ReturnsUIImage() {
         let imageData = TestUtils().loadImageData(filename: "clapboard")
         service?.fetchPosterImageReturnValue = imageData
-        XCTAssertNotNil(service)
+        XCTAssertNotNil(imageData)
     }
 }

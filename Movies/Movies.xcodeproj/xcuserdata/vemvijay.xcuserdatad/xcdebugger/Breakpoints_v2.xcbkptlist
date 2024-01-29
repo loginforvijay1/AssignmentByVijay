@@ -34,6 +34,38 @@
             endingLineNumber = "23"
             landmarkName = "fetchPosterImage(path:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "88964E3D-D5FE-487A-A910-96446ABA0CAB - 24fdb64347e81e5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.MovieService.fetchPosterImage(path: Swift.String) -&gt; PromiseKit.Promise&lt;Foundation.Data&gt;"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Common/NetworkServices/NetworkServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  uuid = "88964E3D-D5FE-487A-A910-96446ABA0CAB - bab0a56678b6f474"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviesTests.MovieService.fetchPosterImage(path: Swift.String) -&gt; PromiseKit.Promise&lt;Foundation.Data&gt;"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Common/NetworkServices/NetworkServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -50,6 +82,38 @@
             endingLineNumber = "42"
             landmarkName = "fetchNowPlayingMovies()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "01FA5A45-ED2C-4457-A45E-4662DE678971 - 103ba101dbc3af87"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.MovieService.fetchNowPlayingMovies() -&gt; PromiseKit.Promise&lt;Movies.MovieList&gt;"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Common/NetworkServices/NetworkServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "143">
+               </Location>
+               <Location
+                  uuid = "01FA5A45-ED2C-4457-A45E-4662DE678971 - e29e8541d38b16ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoviesTests.MovieService.fetchNowPlayingMovies() -&gt; PromiseKit.Promise&lt;MoviesTests.MovieList&gt;"
+                  moduleName = "MoviesTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vemvijay/Desktop/Lloyds/NewCode/Movies/Movies/Movies/Common/NetworkServices/NetworkServices.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "143">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

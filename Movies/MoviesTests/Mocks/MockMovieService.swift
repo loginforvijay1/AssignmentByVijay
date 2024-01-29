@@ -6,7 +6,12 @@ import PromiseKit
 
 @testable import Movies
 
-class MockMovieService: MovieServiceType {
+protocol MockMovieServiceType : MovieServiceType {
+    var fetchPosterImageReturnValue: Data? {get set}
+    var fetchNowPlayingMoviesGivenValue: MovieList? {get set}
+}
+
+class MockMovieService: MockMovieServiceType {
 
     var fetchNowPlayingMoviesCalled = false
     var fetchPosterImageCalled = false
