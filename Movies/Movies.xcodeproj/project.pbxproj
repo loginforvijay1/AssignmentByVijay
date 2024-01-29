@@ -51,6 +51,10 @@
 		7DEE8E002B43CC93000140F2 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE8DFE2B43CC93000140F2 /* MovieDetailsViewModel.swift */; };
 		7DEE8E022B43CCAD000140F2 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE8E012B43CCAD000140F2 /* MovieDetailsViewController.swift */; };
 		7DEE8E032B43CCAD000140F2 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEE8E012B43CCAD000140F2 /* MovieDetailsViewController.swift */; };
+		7DFFE8B92B67C80E00C8E6C6 /* InlineSnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 7DFFE8B82B67C80E00C8E6C6 /* InlineSnapshotTesting */; };
+		7DFFE8BB2B67C80E00C8E6C6 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 7DFFE8BA2B67C80E00C8E6C6 /* SnapshotTesting */; };
+		7DFFE8BE2B67C8BD00C8E6C6 /* MovieListViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFE8BD2B67C8BD00C8E6C6 /* MovieListViewControllerSnapshotTests.swift */; };
+		7DFFE8C02B67C8DA00C8E6C6 /* MovieDetailsViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFFE8BF2B67C8DA00C8E6C6 /* MovieDetailsViewControllerSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +109,8 @@
 		7DEE8DF42B43CC45000140F2 /* MovieListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		7DEE8DFE2B43CC93000140F2 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		7DEE8E012B43CCAD000140F2 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		7DFFE8BD2B67C8BD00C8E6C6 /* MovieListViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
+		7DFFE8BF2B67C8DA00C8E6C6 /* MovieDetailsViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DFFE8B92B67C80E00C8E6C6 /* InlineSnapshotTesting in Frameworks */,
+				7DFFE8BB2B67C80E00C8E6C6 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +147,7 @@
 				7DECE6002B57A419007E53CF /* Movies.xctestplan */,
 				7DA89AC32B42F68B00CF909A /* Movies */,
 				7DA89ADA2B42F68D00CF909A /* MoviesTests */,
+				7DFFE8BC2B67C82600C8E6C6 /* SnapShotTests */,
 				7DA89AE42B42F68D00CF909A /* MoviesUITests */,
 				7DA89AC22B42F68B00CF909A /* Products */,
 			);
@@ -341,6 +350,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		7DFFE8BC2B67C82600C8E6C6 /* SnapShotTests */ = {
+			isa = PBXGroup;
+			children = (
+				7DFFE8BD2B67C8BD00C8E6C6 /* MovieListViewControllerSnapshotTests.swift */,
+				7DFFE8BF2B67C8DA00C8E6C6 /* MovieDetailsViewControllerSnapshotTests.swift */,
+			);
+			path = SnapShotTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,6 +396,10 @@
 				7DA89AD92B42F68D00CF909A /* PBXTargetDependency */,
 			);
 			name = MoviesTests;
+			packageProductDependencies = (
+				7DFFE8B82B67C80E00C8E6C6 /* InlineSnapshotTesting */,
+				7DFFE8BA2B67C80E00C8E6C6 /* SnapshotTesting */,
+			);
 			productName = LloydsCodingAssignmentTests;
 			productReference = 7DA89AD72B42F68D00CF909A /* MoviesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -434,6 +456,7 @@
 			mainGroup = 7DA89AB82B42F68B00CF909A;
 			packageReferences = (
 				7DECE5FD2B5799E2007E53CF /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				7DFFE8B72B67C80E00C8E6C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 7DA89AC22B42F68B00CF909A /* Products */;
 			projectDirPath = "";
@@ -521,6 +544,8 @@
 				7DEE8E032B43CCAD000140F2 /* MovieDetailsViewController.swift in Sources */,
 				7D6818302B441F8A00EDC6D0 /* MovieDetailsViewModelTests.swift in Sources */,
 				7DDEAE052B43FF9400F85572 /* MovieListViewModelTests.swift in Sources */,
+				7DFFE8C02B67C8DA00C8E6C6 /* MovieDetailsViewControllerSnapshotTests.swift in Sources */,
+				7DFFE8BE2B67C8BD00C8E6C6 /* MovieListViewControllerSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +888,14 @@
 				minimumVersion = 8.1.1;
 			};
 		};
+		7DFFE8B72B67C80E00C8E6C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing?source=post_page-----19d047b44d0d--------------------------------";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.15.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -870,6 +903,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7DECE5FD2B5799E2007E53CF /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		7DFFE8B82B67C80E00C8E6C6 /* InlineSnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DFFE8B72B67C80E00C8E6C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = InlineSnapshotTesting;
+		};
+		7DFFE8BA2B67C80E00C8E6C6 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7DFFE8B72B67C80E00C8E6C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

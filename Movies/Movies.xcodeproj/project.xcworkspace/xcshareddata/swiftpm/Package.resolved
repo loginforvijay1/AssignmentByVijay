@@ -8,6 +8,24 @@
         "revision" : "cb70b070cde06837cd10a1febdf6105c1a3bb348",
         "version" : "8.1.1"
       }
+    },
+    {
+      "identity" : "swift-snapshot-testing?source=post_page-----19d047b44d0d--------------------------------",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing?source=post_page-----19d047b44d0d--------------------------------",
+      "state" : {
+        "revision" : "8e68404f641300bfd0e37d478683bb275926760c",
+        "version" : "1.15.2"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "64889f0c732f210a935a0ad7cda38f77f876262d",
+        "version" : "509.1.1"
+      }
     }
   ],
   "version" : 2
