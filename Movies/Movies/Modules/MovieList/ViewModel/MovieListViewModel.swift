@@ -34,6 +34,7 @@ struct MovieViewItem {
 
 protocol MovieListViewModelType {
     var title: String? { get }
+    var cache:  NSCache<NSString, UIImage> { get }
     func loadMovies() -> Promise<[MovieViewItem]>
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage>
 }

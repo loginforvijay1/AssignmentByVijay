@@ -7,7 +7,7 @@ final class MovieListViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     private var activityIndicator: UIActivityIndicatorView?
-    private var viewModel: MovieListViewModel? {
+    private var viewModel: MovieListViewModelType? {
         didSet {
             if isViewLoaded {
                 loadMovies()
