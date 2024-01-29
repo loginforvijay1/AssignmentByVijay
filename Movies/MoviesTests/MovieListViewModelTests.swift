@@ -5,7 +5,7 @@ import XCTest
 final class MovieListViewModelTests: XCTestCase {
     
     private var service: MockMovieService?
-    private var listViewModel: MovieListViewModel?
+    private var listViewModel: MovieListViewModelType?
     
     override func setUpWithError() throws {
         service = MockMovieService()

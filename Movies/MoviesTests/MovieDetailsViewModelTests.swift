@@ -7,7 +7,7 @@ class MovieDetailsViewModelTests: XCTestCase {
 
     private var service: MockMovieService?
 
-    private var sut: MovieDetailsViewModel?
+    private var sut: MovieDetailsViewModelType?
 
     override func setUpWithError() throws {
         service = MockMovieService()
