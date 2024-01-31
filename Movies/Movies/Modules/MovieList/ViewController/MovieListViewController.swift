@@ -108,6 +108,7 @@ extension MovieListViewController: UICollectionViewDelegateFlowLayout {
 extension MovieListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard movieItems.indices.contains(indexPath.row) else { return }
         let item = movieItems[indexPath.row]
         _ = viewModel?.fetchImage(for: item)
             .done { [weak self] image in
@@ -120,6 +121,7 @@ extension MovieListViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard movieItems.indices.contains(indexPath.row) else { return }
         let item = movieItems[indexPath.row]
         showMovieDetails(movie: item.movie)
     }

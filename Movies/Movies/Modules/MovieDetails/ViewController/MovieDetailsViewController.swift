@@ -1,6 +1,4 @@
 
-
-import Foundation
 import UIKit
 import PromiseKit
 
@@ -32,7 +30,7 @@ final class MovieDetailsViewController: UIViewController {
         }
     }
     
-    func loadViews() {
+   private func loadViews() {
         
         view = UIView()
         view.backgroundColor = .white

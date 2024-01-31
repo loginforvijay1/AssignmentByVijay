@@ -33,7 +33,7 @@ struct MovieViewItem {
 }
 
 protocol MovieListViewModelType {
-    var title: String? { get }
+    var title: String { get }
     var cache:  NSCache<NSString, UIImage> { get }
     func loadMovies() -> Promise<[MovieViewItem]>
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage>
@@ -48,7 +48,7 @@ struct MovieListViewModel: MovieListViewModelType {
         self.service = service
     }
     
-    var title: String? {
+    var title: String {
         return Constants.movieListTitile
     }
     
