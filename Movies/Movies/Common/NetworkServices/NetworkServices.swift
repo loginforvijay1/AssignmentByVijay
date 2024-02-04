@@ -12,8 +12,7 @@ protocol MovieServiceType {
 private let apiKey = "f7ae5a29253b3db883e101050692f0a8"
 
 struct MovieServiceEndPoints {
-    static let theMoviesDB = "https://api.themoviedb.org/3"
-    static let nowPlaying = "/movie/now_playing"
+    static let nowPlaying = "https://api.themoviedb.org/3/movie/now_playing"
     static let posterImage = "http://image.tmdb.org/t/p/w185"
 }
 
@@ -64,8 +63,7 @@ private extension MovieService {
     
     func requestURL(from path: String) -> URL? {
         
-        let urlString = MovieServiceEndPoints.theMoviesDB.appending(path)
-        guard let url = URL(string: urlString),
+        guard let url = URL(string: path),
               var components = URLComponents(url: url, resolvingAgainstBaseURL: false)   else {
             return nil
         }

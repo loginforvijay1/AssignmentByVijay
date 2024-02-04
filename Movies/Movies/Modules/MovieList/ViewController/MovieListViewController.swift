@@ -20,9 +20,9 @@ final class MovieListViewController: UIViewController {
     private func flowLayout() -> UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 20
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         return flowLayout
     }
     
@@ -98,8 +98,8 @@ extension MovieListViewController {
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let yourWidth = (collectionView.bounds.width - 40)/2
-        let yourHeight = yourWidth
+        let yourWidth = (collectionView.bounds.width - 15)/2
+        let yourHeight = yourWidth + 30
         
         return CGSize(width: yourWidth, height: yourHeight)
     }
