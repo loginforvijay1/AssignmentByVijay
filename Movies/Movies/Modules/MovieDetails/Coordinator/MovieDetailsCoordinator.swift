@@ -6,7 +6,7 @@ final class MovieDetailsCoordinator: Coordinator {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    internal var navigationController: UINavigationController
+    var navigationController: UINavigationController
     private let movieDetails: MovieDetailsData
     
     init(movieDetails: MovieDetailsData, navigationController: UINavigationController) {
