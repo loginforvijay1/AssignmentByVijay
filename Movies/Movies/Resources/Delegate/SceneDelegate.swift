@@ -6,7 +6,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    private var mainCoordinator: MainCoodinator?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -14,8 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController =  UINavigationController(rootViewController: MovieListViewController())
+        let navController = UINavigationController()
+        window.rootViewController = navController
         window.makeKeyAndVisible()
+        
+        // send that into our coordinator so that it can display view controllers
+        mainCoordinator = MainCoodinator(navigationController: navController)
+        // tell the coordinator to take over control
+        mainCoordinator?.start()
         self.window = window
     }
 

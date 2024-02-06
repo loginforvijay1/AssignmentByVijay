@@ -18,10 +18,10 @@ struct MovieDetailsViewModel: MovieDetailsViewModelType {
     let subText: String
     let posterImage: UIImage
     
-    init( movie: Movie, posterImage: UIImage) {
-        subText = movie.overview
-        title = movie.title
-        self.posterImage = posterImage
-        subTitle = DateFormatter.string(from: movie.releaseDate, format: Constants.dateFormat)
+    init(movieDetails: MovieDetailsData) {
+        self.title = movieDetails.movieData.title
+        self.subText = movieDetails.movieData.overview
+        self.posterImage = movieDetails.moviePoster
+        self.subTitle = DateFormatter.string(from: movieDetails.movieData.releaseDate, format: Constants.dateFormat)
     }
 }

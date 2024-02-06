@@ -32,24 +32,36 @@ struct MovieViewItem {
     }
 }
 
+struct MovieDetailsData {
+    let movieData: Movie
+    let moviePoster: UIImage
+}
+
 protocol MovieListViewModelType {
     var title: String { get }
     var cache:  NSCache<NSString, UIImage> { get }
     func loadMovies() -> Promise<[MovieViewItem]>
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage>
+    func didSelect(movieDetails: MovieDetailsData)
 }
 
 struct MovieListViewModel: MovieListViewModelType {
     
     private let service: MovieServiceType
+    private weak var delegate: MovieListCoordinatorDelegate?
     let cache = NSCache<NSString, UIImage>()
     
-    init(service: MovieServiceType) {
+    init(service: MovieServiceType, delegate: MovieListCoordinatorDelegate? = nil) {
         self.service = service
+        self.delegate = delegate
     }
     
     var title: String {
         return Constants.movieListTitile
+    }
+    
+    func didSelect(movieDetails: MovieDetailsData) {
+        delegate?.showMovieDetails(movieDetails: movieDetails)
     }
     
     func fetchImage(for item: MovieViewItem) -> Promise<UIImage> {
