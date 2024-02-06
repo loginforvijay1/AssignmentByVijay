@@ -34,9 +34,6 @@ final class MovieListViewControllerUITests: XCTestCase {
         let element = app.windows.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
         
         let verticalScrollBar3PagesCollectionView = app/*@START_MENU_TOKEN@*/.collectionViews.containing(.other, identifier:"Vertical scroll bar, 3 pages").element/*[[".collectionViews.containing(.other, identifier:\"Horizontal scroll bar, 1 page\").element",".collectionViews.containing(.other, identifier:\"Vertical scroll bar, 3 pages\").element"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        verticalScrollBar3PagesCollectionView.swipeUp()
-        verticalScrollBar3PagesCollectionView.swipeDown()
-        verticalScrollBar3PagesCollectionView.swipeUp()
         cellsQuery = XCUIApplication().collectionViews.cells
                 
         let refreshButton = app.navigationBars["Now Playing"].buttons["Refresh"]
