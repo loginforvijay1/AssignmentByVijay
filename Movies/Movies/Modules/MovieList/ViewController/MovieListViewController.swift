@@ -7,7 +7,7 @@ final class MovieListViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     private var activityIndicator: UIActivityIndicatorView?
-    private var viewModel: MovieListViewModelType? {
+    var viewModel: MovieListViewModelType? {
         didSet {
             if isViewLoaded {
                 loadMovies()
@@ -53,8 +53,8 @@ final class MovieListViewController: UIViewController {
         setupCollectionView()
         setupActivityIndicator()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(loadMovies))
-        viewModel = MovieListViewModel(service: MovieService())
         title = viewModel?.title
+        loadMovies()
     }
     
     @objc private func loadMovies() {
@@ -86,15 +86,6 @@ final class MovieListViewController: UIViewController {
     }
 }
 
-extension MovieListViewController {
-    func showMovieDetails(movie: Movie) {
-        let poseterImage = viewModel?.cache.object(forKey: movie.posterPath as NSString)
-        let viewModel = MovieDetailsViewModel(movie: movie, posterImage: poseterImage ?? UIImage())
-        let viewController = MovieDetailsViewController()
-        viewController.viewModel = viewModel
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-}
 extension MovieListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -123,7 +114,8 @@ extension MovieListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard movieItems.indices.contains(indexPath.row) else { return }
         let item = movieItems[indexPath.row]
-        showMovieDetails(movie: item.movie)
+        let moviePoster = viewModel?.cache.object(forKey: item.movie.posterPath as NSString) ?? UIImage()
+        viewModel?.didSelect(movieDetails: MovieDetailsData(movieData: item.movie, moviePoster: moviePoster))
     }
 }
 
