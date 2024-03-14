@@ -1,4 +1,4 @@
-# Lloyds Tech Test (Vijay)
+# Movies APP (Vijay)
 
 ## Overview
 - Task
@@ -28,7 +28,7 @@ I selected the Playing movies API and integrated it with collection view to crea
 
 ## Environment
 - Xcode 15.1
-- iOS 16.0
+- iOS 17.0
     
 ## Features
 - Home: Load movies list
